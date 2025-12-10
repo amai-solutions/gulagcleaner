@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulag Cleaner Web - Remove Ads from PDFs</title>
+    <meta name="description"
+        content="Free tool to remove advertisements from PDFs (Wuolah, StuDocu) while keeping the original quality.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>GULAG CLEANER</h1>
+            <p class="subtitle">Liberate your PDFs from unwanted advertisements.</p>
+        </header>
+
+        <main class="card" id="mainCard">
+            <!-- Dropzone State -->
+            <div class="dropzone" id="dropzone">
+                <input type="file" id="fileInput" accept=".pdf" hidden>
+                <div class="dropzone-content">
+                    <div class="icon-upload">
+                        <ion-icon name="cloud-upload-outline"></ion-icon>
+                    </div>
+                    <h2>Drag & Drop PDF here</h2>
+                    <p style="margin: 0.5rem 0; color: #94a3b8;">or</p>
+                    <button class="btn-select">Select
+                        File</button>
+                    <p style="margin-top: 1rem; font-size: 0.8rem; color: #64748b;">Supported files: .pdf</p>
+                </div>
+            </div>
+
+            <!-- Processing State -->
+            <div class="state-processing">
+                <div class="loader"></div>
+                <h3>Cleaning your PDF...</h3>
+                <p class="file-name" id="processingFileName"></p>
+                <p style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.9rem;">This might take a few seconds.</p>
+            </div>
+
+            <!-- Success State -->
+            <div class="state-success">
+                <div class="success-icon">
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
+                <h3>PDF Cleaned Successfully!</h3>
+                <p>Your document is now ad-free.</p>
+                <a href="#" class="btn-download" id="downloadBtn" download>Download Cleaned PDF</a>
+                <br>
+                <button class="btn-reset" onclick="resetApp()">Clean another file</button>
+            </div>
+
+            <!-- Error State -->
+            <div class="state-error">
+                <div class="error-icon">
+                    <ion-icon name="alert-circle"></ion-icon>
+                </div>
+                <h3>Something went wrong</h3>
+                <p id="errorMessage" style="color: #cbd5e1; margin-bottom: 1rem;">Unable to process the file.</p>
+                <button class="btn-select" onclick="resetApp()">Try Again</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Gulag Cleaner Web. Powered by <a href="https://github.com/YM162/gulagcleaner" target="_blank"
+                    style="color: inherit;">GulagCleaner</a>.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
